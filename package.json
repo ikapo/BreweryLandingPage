@@ -5,6 +5,8 @@
   "scripts": {
     "start": "vite",
     "build": "tsc && vite build",
+    "lint": "eslint **/*.tsx",
+    "lint:fix": "eslint **/*.tsx --fix",
     "preview": "vite preview"
   },
   "dependencies": {
