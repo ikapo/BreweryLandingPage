@@ -12,6 +12,22 @@ module.exports = {
         "airbnb-typescript",
         "prettier"
     ],
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "import"
+    ],
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [".ts", ".tsx"]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true, // always try to resolve types under `<root>@types` directory even it doesn't contain any source code, like `@types/unist`
+                "project": "./tsconfig.json",
+            }
+        }
+    },
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "project": './tsconfig.json',
@@ -21,10 +37,6 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
     "rules": {
         // Unneeded since react 17
         "react/react-in-jsx-scope": "off",

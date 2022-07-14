@@ -1,3 +1,5 @@
+const { pathsToModuleNameMapper } = require('ts-jest')
+const { compilerOptions } = require('./tsconfig')
 module.exports = {
   roots: ["<rootDir>/src"],
   collectCoverageFrom: [
@@ -8,7 +10,8 @@ module.exports = {
   coveragePathIgnorePatterns: [],
   testEnvironment: "jsdom",
   modulePaths: ["<rootDir>/src"],
-  transform: {
+  transform:
+  {
     "^.+\\.(ts|js|tsx|jsx)$": "@swc/jest",
   },
   transformIgnorePatterns: [
@@ -24,4 +27,5 @@ module.exports = {
     "node",
   ],
   resetMocks: true,
+  moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, { prefix: '<rootDir>/' }),
 };
