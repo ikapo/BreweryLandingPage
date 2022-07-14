@@ -13,7 +13,7 @@ describe("NavBar", () => {
   });
 
   it("should render successfully", () => {
-    const { baseElement } = render(<NavBar />);
+    const { baseElement } = setup();
     expect(baseElement).toBeTruthy();
   });
 
