@@ -1,8 +1,16 @@
+import { Navigate, Route, Routes } from "react-router-dom";
+import { NavBar } from "@/components/NavBar";
+import { Urls } from "./types/urls";
+
 function App() {
   return (
-    <div>
-      <p>Hello</p>
-    </div>
+    <>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Navigate replace to={Urls.Browse} />} />
+        <Route path={Urls.Browse} element={<p>Browse</p>} />
+      </Routes>
+    </>
   );
 }
 
