@@ -12,23 +12,30 @@ module.exports = {
         "airbnb-typescript",
         "prettier"
     ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
-        "project": './tsconfig.json',
-        "ecmaFeatures": {
-            "jsx": true
+    "settings": {
+        'import/resolver': {
+            alias: {
+                map: [['@/', './src/']],
+                extensions: ['.ts', '.js', '.tsx'],
+            },
         },
-        "ecmaVersion": "latest",
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react",
-        "@typescript-eslint"
-    ],
-    "rules": {
-        // Unneeded since react 17
-        "react/react-in-jsx-scope": "off",
-        "react/jsx-props-no-spreading": "off",
-        "import/prefer-default-export": "off",
+        "parser": "@typescript-eslint/parser",
+        "parserOptions": {
+            "project": './tsconfig.json',
+            "ecmaFeatures": {
+                "jsx": true
+            },
+            "ecmaVersion": "latest",
+            "sourceType": "module"
+        },
+        "plugins": [
+            "react",
+            "@typescript-eslint"
+        ],
+        "rules": {
+            // Unneeded since react 17
+            "react/react-in-jsx-scope": "off",
+            "react/jsx-props-no-spreading": "off",
+            "import/prefer-default-export": "off",
+        }
     }
-}
