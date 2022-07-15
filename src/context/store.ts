@@ -1,12 +1,18 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
+import type { PreloadedState } from "@reduxjs/toolkit";
 import { favoriteBeersReducer } from "@/features/favoriteBeers";
 
-export const store = configureStore({
-  reducer: {
-    favoriteBeers: favoriteBeersReducer,
-  },
+// Create the root reducer separately so we can extract the RootState type
+const rootReducer = combineReducers({
+  favoriteBeers: favoriteBeersReducer,
 });
 
-// Infer state and dispatch types
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
+  configureStore({
+    reducer: rootReducer,
+    preloadedState,
+  });
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppStore = ReturnType<typeof setupStore>;
+export type AppDispatch = AppStore["dispatch"];
