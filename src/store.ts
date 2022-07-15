@@ -1,4 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
+import favoriteBeersReducer from "@/context/favoriteBeersSlice";
 
 const store = configureStore({
   reducer: {
