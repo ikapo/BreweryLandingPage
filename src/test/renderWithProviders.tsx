@@ -18,7 +18,7 @@ interface ExtendedRenderOptions extends Omit<RenderOptions, "queries"> {
 export function renderWithProviders(
   ui: React.ReactElement,
   {
-    preloadedState = { favoriteBeers: new Set() },
+    preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = setupStore(preloadedState),
     ...renderOptions

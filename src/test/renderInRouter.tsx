@@ -1,4 +1,5 @@
-import { history } from "@/history";
+/* eslint-disable import/no-extraneous-dependencies */
+import { history } from "@/utils/history";
 import { render } from "@testing-library/react";
 import { Router } from "react-router-dom";
 

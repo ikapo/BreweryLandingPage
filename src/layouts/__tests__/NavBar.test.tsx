@@ -1,8 +1,8 @@
 import { fireEvent, screen } from "@testing-library/react";
-import { NavBar } from "@/components/NavBar";
-import { history } from "@/history";
+import { NavBar } from "@/layouts/NavBar";
 import { renderInRouter } from "@/test/renderInRouter";
 import { Urls } from "@/types/urls";
+import { history } from "@/utils/history";
 
 const setup = () => renderInRouter(<NavBar />);
 
