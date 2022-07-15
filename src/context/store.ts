@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import favoriteBeersReducer from "@/context/favoriteBeersSlice";
+import { favoriteBeersReducer } from "@/features/favoriteBeers";
 
 const store = configureStore({
   reducer: {
