@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import { NavBar } from "@/components/NavBar";
-import { Urls } from "./types/urls";
+import { NavBar } from "@/layouts/NavBar";
+import { Urls } from "@/types/urls";
 
 function App() {
   return (
