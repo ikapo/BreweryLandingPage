@@ -23,7 +23,7 @@ describe("NavBar", () => {
     expect(history.location.pathname).toBe(Urls.Browse);
   });
 
-  it("should navigate to / when 'View Favorites' is clicked", () => {
+  it("should navigate to favorites page when 'View Favorites' is clicked", () => {
     const browseButton = screen.getByText("View Favorites");
     fireEvent.click(browseButton);
     expect(history.location.pathname).toBe(Urls.Favorites);
