@@ -16,7 +16,7 @@ export function BeerCard({ beer }: BeerCardProps) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useAppDispatch();
   const selector = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
-
+  ReactModal.setAppElement("body");
   return (
     <>
       <ReactModal
