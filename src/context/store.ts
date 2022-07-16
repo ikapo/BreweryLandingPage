@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { favoriteBeersReducer } from "@/features/favoriteBeers";

@@ -1,42 +1,30 @@
-export interface Beer {
+export interface IBeer {
   id: number;
   name: string;
   tagline: string;
-  firstBrewed: string;
+  first_brewed: string;
   description: string;
-  imageURL: string;
+  image_url: string;
   abv: number;
-  ibu?: number;
-  targetFg: number;
-  targetOg: number;
-  ebc?: number;
-  srm?: number;
-  ph?: number;
-  attenuationLevel: number;
+  ibu: number | null;
+  target_fg: number;
+  target_og: number;
+  ebc: number | null;
+  srm: number | null;
+  ph: number | null;
+  attenuation_level: number;
   volume: BoilVolume;
-  boilVolume: BoilVolume;
+  boil_volume: BoilVolume;
   method: Method;
   ingredients: Ingredients;
-  foodPairing: string[];
-  brewersTips: string;
-  contributedBy: ContributedBy;
+  food_pairing: string[];
+  brewers_tips: string;
+  contributed_by: string;
 }
 
 export interface BoilVolume {
   value: number;
-  unit: Unit;
-}
-
-export enum Unit {
-  Celsius = "celsius",
-  Grams = "grams",
-  Kilograms = "kilograms",
-  Litres = "litres",
-}
-
-export enum ContributedBy {
-  AliSkinnerAliSkinner = "Ali Skinner <AliSkinner>",
-  SamMasonSamjbmason = "Sam Mason <samjbmason>",
+  unit: string;
 }
 
 export interface Ingredients {
@@ -48,22 +36,8 @@ export interface Ingredients {
 export interface Hop {
   name: string;
   amount: BoilVolume;
-  add: Add;
-  attribute: Attribute;
-}
-
-export enum Add {
-  DryHop = "dry hop",
-  End = "end",
-  Middle = "middle",
-  Start = "start",
-}
-
-export enum Attribute {
-  Aroma = "aroma",
-  AttributeFlavour = "Flavour",
-  Bitter = "bitter",
-  Flavour = "flavour",
+  add: string;
+  attribute: string;
 }
 
 export interface Malt {
@@ -72,9 +46,9 @@ export interface Malt {
 }
 
 export interface Method {
-  mashTemp: MashTemp[];
+  mash_temp: MashTemp[];
   fermentation: Fermentation;
-  twist?: string;
+  twist: null | string;
 }
 
 export interface Fermentation {
@@ -83,5 +57,5 @@ export interface Fermentation {
 
 export interface MashTemp {
   temp: BoilVolume;
-  duration?: number;
+  duration: number | null;
 }

@@ -5,15 +5,19 @@ import { Provider } from "react-redux";
 import { setupStore } from "@/context/store";
 import App from "./App";
 import "./assets/index.css";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 const store = setupStore();
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
+      <QueryClientProvider client={queryClient}>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </QueryClientProvider>
     </BrowserRouter>
   </React.StrictMode>
 );
