@@ -5,7 +5,7 @@ import { Modal } from "@/components/Modal";
 const beer = getRandomBeer();
 const setup = () => render(<Modal beer={beer} />);
 
-describe("BeerCard", () => {
+describe("Modal", () => {
   it("should render successfully", () => {
     const { baseElement } = setup();
     expect(baseElement).toBeTruthy();
