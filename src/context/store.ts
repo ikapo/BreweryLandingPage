@@ -2,9 +2,6 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { favoriteBeersReducer } from "@/features/favoriteBeers";
-import { enableMapSet } from "immer";
-
-enableMapSet();
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
