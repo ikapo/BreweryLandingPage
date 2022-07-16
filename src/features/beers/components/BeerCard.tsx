@@ -13,6 +13,7 @@ interface BeerCardProps {
 
 export function BeerCard({ beer }: BeerCardProps) {
   const [showModal, setShowModal] = useState(false);
+  const dispatch = useAppDispatch();
 
   return (
     <>
@@ -46,6 +47,7 @@ export function BeerCard({ beer }: BeerCardProps) {
           </div>
         </button>
         <button
+          onClick={() => dispatch(add(beer))}
           type="button"
           className="self-center py-2 px-3 my-4 text-sm text-white bg-blue-600 rounded border border-transparent shadow-sm hover:bg-blue-700"
         >
