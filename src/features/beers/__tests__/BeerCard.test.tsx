@@ -23,22 +23,27 @@ describe("BeerCard", () => {
 
   it("should display the beer properly", () => {
     setup();
-    expect(beer.image_url).toBeInTheDocument();
-    expect(beer.name).toBeInTheDocument();
+    const img = screen.getByAltText(beer.name) as HTMLImageElement;
+    expect(img.src).toContain(beer.image_url);
+    expect(screen.getByText(beer.name)).toBeTruthy();
   });
 
   it("should show the modal when a beer is clicked on", () => {
     setup();
     const beerModal = screen.getByText(beer.name);
     fireEvent.click(beerModal);
-    expect(beer.description).toBeInTheDocument();
-    expect(beer.first_brewed).toBeInTheDocument();
-    expect(beer.food_pairing).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        `${beer.method.fermentation.temp.value} degrees ${beer.method.fermentation.temp.unit}`
+      )
+    ).toBeTruthy();
+    expect(screen.getByText(beer.food_pairing.join(", "))).toBeTruthy();
   });
 
-  it("should add a beer to favorites when add to favorites is clicked on", () => {
+  it("should add and remove a beer to favorites", () => {
+    // Add the beer
     const { store } = setup();
-    const addToFavorites = screen.getByText("Add To Favorites");
+    const addToFavorites = screen.getByText("Add To Favorites +");
     fireEvent.click(addToFavorites);
     const {
       favoriteBeers: { favoriteBeers },
@@ -46,5 +51,13 @@ describe("BeerCard", () => {
     expect(
       favoriteBeers.findIndex((b) => b.id === beer.id)
     ).toBeGreaterThanOrEqual(0);
+
+    // Remove the beer
+    const removeFromFavorites = screen.getByText("Remove From Favorites");
+    fireEvent.click(removeFromFavorites);
+    const state = store.getState();
+    expect(
+      state.favoriteBeers.favoriteBeers.findIndex((b) => b.id === beer.id)
+    ).toBe(-1);
   });
 });
