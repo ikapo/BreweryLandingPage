@@ -2,8 +2,20 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  overflow: hidden; /* Hide scrollbars */
 }
 
 @tailwind components;
 @tailwind base;
 @tailwind utilities;
+@layer utilities {
+  /* Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+}
