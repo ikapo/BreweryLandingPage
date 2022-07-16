@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { IBeer } from "@/features/beers";
@@ -10,9 +11,10 @@ import { Modal } from "@/components/Modal";
 
 interface BeerCardProps {
   beer: IBeer;
+  Rank?: React.ReactNode;
 }
 
-export function BeerCard({ beer }: BeerCardProps) {
+export function BeerCard({ beer, Rank = null }: BeerCardProps) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useAppDispatch();
   const selector = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
@@ -64,6 +66,7 @@ export function BeerCard({ beer }: BeerCardProps) {
             Add To Favorites +
           </button>
         )}
+        {Rank}
       </div>
     </>
   );
