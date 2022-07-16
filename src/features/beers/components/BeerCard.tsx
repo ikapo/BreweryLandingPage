@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { IBeer } from "@/features/beers";
-import { add } from "@/features/favoriteBeers";
+import { upsert, remove } from "@/features/favoriteBeers";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
+import { useAppSelector } from "@/hooks/useAppSelector";
 import { useState } from "react";
 import ReactModal from "react-modal";
 import { Modal } from "./Modal";
@@ -14,6 +15,7 @@ interface BeerCardProps {
 export function BeerCard({ beer }: BeerCardProps) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useAppDispatch();
+  const selector = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
 
   return (
     <>
@@ -46,13 +48,23 @@ export function BeerCard({ beer }: BeerCardProps) {
             </h2>
           </div>
         </button>
-        <button
-          onClick={() => dispatch(add(beer))}
-          type="button"
-          className="self-center py-2 px-3 my-4 text-sm text-white bg-blue-600 rounded border border-transparent shadow-sm hover:bg-blue-700"
-        >
-          Add To Favorites +
-        </button>
+        {selector.findIndex((b) => b.id === beer.id) !== -1 ? (
+          <button
+            onClick={() => dispatch(remove(beer))}
+            type="button"
+            className="self-center py-2 px-3 my-4 text-sm text-white bg-blue-600 rounded border border-transparent shadow-sm hover:bg-blue-700"
+          >
+            Remove From Favorites
+          </button>
+        ) : (
+          <button
+            onClick={() => dispatch(upsert(beer))}
+            type="button"
+            className="self-center py-2 px-3 my-4 text-sm text-white bg-blue-600 rounded border border-transparent shadow-sm hover:bg-blue-700"
+          >
+            Add To Favorites +
+          </button>
+        )}
       </div>
     </>
   );
