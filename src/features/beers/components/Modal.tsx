@@ -17,9 +17,7 @@ export function Modal({ beer }: ModalProps) {
         <div className="py-2">
           <p className="text-xl font-semibold">Fermentation Temperature:</p>
           <p className="overflow-hidden mb-4 text-lg">
-            {beer.method.fermentation.temp.value}
-            {" degrees "}
-            {beer.method.fermentation.temp.unit}
+            {`${beer.method.fermentation.temp.value} degrees ${beer.method.fermentation.temp.unit}`}
           </p>
         </div>
         <p className="text-xl font-semibold">Food Pairings:</p>
