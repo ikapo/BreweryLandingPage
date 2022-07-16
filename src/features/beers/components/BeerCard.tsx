@@ -6,7 +6,7 @@ import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { useState } from "react";
 import ReactModal from "react-modal";
-import { Modal } from "./Modal";
+import { Modal } from "@/components/Modal";
 
 interface BeerCardProps {
   beer: IBeer;
