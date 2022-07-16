@@ -1,7 +1,9 @@
+import fs from "fs";
+import { join } from "path";
 import { Beer } from "@/features/beers";
 
-export async function getRandomBeer(): Promise<Beer> {
-  const response = await fetch("https://api.punkapi.com/v2/beers/random");
-  const data = await response.json();
-  return data as Beer;
+export function getRandomBeer(): Beer {
+  const beersJson = fs.readFileSync(join(__dirname, "/beers.json"), "utf-8");
+  const beers = JSON.parse(beersJson) as Beer[];
+  return beers[Math.floor(Math.random() * beers.length)];
 }
