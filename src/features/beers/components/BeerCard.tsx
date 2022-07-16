@@ -27,9 +27,10 @@ export function BeerCard({ beer }: BeerCardProps) {
       >
         <Modal beer={beer} />
       </ReactModal>
+
       <div
         key={beer.id}
-        className="flex flex-col justify-items-center max-w-xs bg-blue-50 rounded-lg border-4 border-blue-400 shadow-lg aspect-square"
+        className="flex flex-col w-72 h-80 rounded-lg border border-gray-300 shadow-md transition-shadow hover:shadow-2xl overflow-clipped hover:shadow-gray-800"
       >
         <button
           type="button"
@@ -39,20 +40,18 @@ export function BeerCard({ beer }: BeerCardProps) {
           <img
             src={beer.image_url}
             alt={beer.name}
-            className="pt-4 mx-auto h-60"
+            className="pt-4 mx-auto h-52"
           />
           <span className="mt-1 w-full bg-gray-500 p-[1px]" />
-          <div className="p-6">
-            <h2 className="text-lg font-medium leading-6 text-gray-900">
-              {beer.name}
-            </h2>
-          </div>
+          <p className="p-3 w-full text-lg font-medium leading-6 text-center text-gray-300 truncate">
+            {beer.name}
+          </p>
         </button>
         {selector.findIndex((b) => b.id === beer.id) !== -1 ? (
           <button
             onClick={() => dispatch(remove(beer))}
             type="button"
-            className="self-center py-2 px-3 my-4 text-sm text-white bg-blue-600 rounded border border-transparent shadow-sm hover:bg-blue-700"
+            className="self-center py-2 px-3 mb-8 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
             Remove From Favorites
           </button>
@@ -60,7 +59,7 @@ export function BeerCard({ beer }: BeerCardProps) {
           <button
             onClick={() => dispatch(upsert(beer))}
             type="button"
-            className="self-center py-2 px-3 my-4 text-sm text-white bg-blue-600 rounded border border-transparent shadow-sm hover:bg-blue-700"
+            className="self-center py-2 px-3 mb-8 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
             Add To Favorites +
           </button>
