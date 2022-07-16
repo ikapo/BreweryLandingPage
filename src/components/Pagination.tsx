@@ -1,0 +1,46 @@
+interface PaginationProps {
+  showingStart: number;
+  showingEnd: number;
+  total: number;
+  next: () => void;
+  previous: () => void;
+}
+
+export function Pagination({
+  next,
+  previous,
+  showingStart,
+  showingEnd,
+  total,
+}: PaginationProps) {
+  return (
+    <nav
+      className="flex absolute bottom-0 justify-between items-center py-6 px-4 w-screen bg-gray-600 sm:px-6"
+      aria-label="Pagination"
+    >
+      <div className="hidden sm:block">
+        <p className="text-lg text-gray-200">
+          Showing <span className="font-medium">{showingStart}</span> to{" "}
+          <span className="font-medium">{showingEnd}</span> of{" "}
+          <span className="font-medium">{total}</span> results
+        </p>
+      </div>
+      <div className="flex flex-1 justify-between sm:justify-end">
+        <button
+          type="button"
+          onClick={() => previous()}
+          className="inline-flex relative items-center py-4 px-8 font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50 text-md"
+        >
+          Previous
+        </button>
+        <button
+          type="button"
+          onClick={() => next()}
+          className="inline-flex relative items-center py-4 px-8 ml-3 font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50 text-md"
+        >
+          Next
+        </button>
+      </div>
+    </nav>
+  );
+}
