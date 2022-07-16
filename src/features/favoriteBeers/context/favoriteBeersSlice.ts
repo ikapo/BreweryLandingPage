@@ -19,14 +19,23 @@ export const favoriteBeersSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    upsert: (state, beer: PayloadAction<IBeer>) => {
+    insert: (state, beer: PayloadAction<IBeer>) => {
       const indexOfBeer = state.favoriteBeers.findIndex(
         (b) => b.id === beer.payload.id
       );
       if (indexOfBeer === -1) {
         state.favoriteBeers.push(<IFavoriteBeer>beer.payload);
-      } else {
-        state.favoriteBeers[indexOfBeer] = beer.payload;
+      }
+    },
+    updateRank: (
+      state,
+      rankWithId: PayloadAction<{ id: number; rank: 1 | 2 | 3 | 4 | 5 }>
+    ) => {
+      const indexOfBeer = state.favoriteBeers.findIndex(
+        (b) => b.id === rankWithId.payload.id
+      );
+      if (indexOfBeer !== -1) {
+        state.favoriteBeers[indexOfBeer].rank = rankWithId.payload.rank;
       }
     },
     remove: (state, beer: PayloadAction<IFavoriteBeer>) => {
@@ -40,6 +49,6 @@ export const favoriteBeersSlice = createSlice({
   },
 });
 
-export const { upsert, remove, clear } = favoriteBeersSlice.actions;
+export const { insert, updateRank, remove, clear } = favoriteBeersSlice.actions;
 export const selectFavoriteBeers = (state: RootState) => state.favoriteBeers;
 export default favoriteBeersSlice.reducer;
