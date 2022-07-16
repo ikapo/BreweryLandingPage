@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { setupStore } from "@/context/store";
+import { QueryClient, QueryClientProvider } from "react-query";
 import App from "./App";
 import "./assets/index.css";
-import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
 const store = setupStore();
