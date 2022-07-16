@@ -39,6 +39,6 @@ export const favoriteBeersSlice = createSlice({
   },
 });
 
-export const { add, remove, clear } = favoriteBeersSlice.actions;
+export const { add, update, remove, clear } = favoriteBeersSlice.actions;
 export const selectFavoriteBeers = (state: RootState) => state.favoriteBeers;
 export default favoriteBeersSlice.reducer;
