@@ -4,4 +4,4 @@ export {
   remove,
   clear,
 } from "./context/favoriteBeersSlice";
-export type { FavoriteBeer } from "./types/favoriteBeer";
+export type { IFavoriteBeer } from "./types/favoriteBeer";
