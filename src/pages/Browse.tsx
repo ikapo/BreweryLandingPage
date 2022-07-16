@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
-import { BeerGrid, type IBeer } from "@/features/beers";
+import type { IBeer } from "@/features/beers";
+import { BeerGrid } from "@/components/BeerGrid";
 import { Spinner } from "@/components/Spinner";
 import { isErrorObject } from "@/utils/isErrorObject";
 import { Pagination } from "@/components/Pagination";

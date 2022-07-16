@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { getRandomBeer } from "@/test/beerUtils";
-import { BeerGrid } from "@/features/beers";
+import { BeerGrid } from "@/components/BeerGrid";
 import { renderWithProviders } from "@/test/renderWithProviders";
 import { setupStore } from "@/context/store";
 
