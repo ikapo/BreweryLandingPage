@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { getRandomBeer } from "@/test/beerUtils";
-import { BeerGrid } from "@/features/beers";
+import { BeerGrid } from "@/components/BeerGrid";
 import { renderWithProviders } from "@/test/renderWithProviders";
 import { setupStore } from "@/context/store";
 
@@ -22,8 +22,8 @@ describe("BeerGrid", () => {
 
   it("should display the beers properly", () => {
     setup();
-    expect(screen.getByText(beer1.name)).toBeTruthy();
-    expect(screen.getByText(beer2.name)).toBeTruthy();
-    expect(screen.getByText(beer3.name)).toBeTruthy();
+    expect(screen.queryAllByText(beer1.name)).toBeTruthy();
+    expect(screen.queryAllByText(beer2.name)).toBeTruthy();
+    expect(screen.queryAllByText(beer3.name)).toBeTruthy();
   });
 });

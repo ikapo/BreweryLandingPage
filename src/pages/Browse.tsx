@@ -1,12 +1,14 @@
 import { useQuery } from "react-query";
 import { useState } from "react";
-import { BeerGrid, type IBeer } from "@/features/beers";
+import type { IBeer } from "@/features/beers";
+import { BeerGrid } from "@/components/BeerGrid";
 import { Spinner } from "@/components/Spinner";
 import { isErrorObject } from "@/utils/isErrorObject";
 import { Pagination } from "@/components/Pagination";
 import { fetchBeers } from "@/utils/fetchBeers";
 import { isValidPage, MAX_PAGE } from "@/config/pagination";
 import { Background } from "@/components/Background";
+import { NavBar } from "@/layouts/NavBar";
 
 export function BrowsePage() {
   const [page, setPage] = useState(1);
@@ -27,6 +29,7 @@ export function BrowsePage() {
     }
     return (
       <>
+        <NavBar />
         <Background />
         <div className="flex flex-col justify-center h-[calc(100vh-10rem)]">
           <h2 className="text-8xl text-center text-red-400">
@@ -44,7 +47,8 @@ export function BrowsePage() {
     beers = beers.splice(0, 3);
   }
   return (
-    <div>
+    <>
+      <NavBar />
       <Background />
       {isLoading || isFetching ? (
         <div
@@ -65,6 +69,6 @@ export function BrowsePage() {
           />
         </>
       )}
-    </div>
+    </>
   );
 }

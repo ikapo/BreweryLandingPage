@@ -1,7 +1,8 @@
+/* eslint-disable react/require-default-props */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { IBeer } from "@/features/beers";
-import { upsert, remove } from "@/features/favoriteBeers";
+import { insert, remove } from "@/features/favoriteBeers";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { useState } from "react";
@@ -10,9 +11,10 @@ import { Modal } from "@/components/Modal";
 
 interface BeerCardProps {
   beer: IBeer;
+  Rank?: React.ReactNode;
 }
 
-export function BeerCard({ beer }: BeerCardProps) {
+export function BeerCard({ beer, Rank = null }: BeerCardProps) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useAppDispatch();
   const selector = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
@@ -30,7 +32,7 @@ export function BeerCard({ beer }: BeerCardProps) {
 
       <div
         key={beer.id}
-        className="flex flex-col w-72 h-80 rounded-lg border border-gray-300 shadow-md transition-shadow hover:shadow-2xl overflow-clipped hover:shadow-gray-800"
+        className="flex flex-col w-72 h-64 rounded-lg border border-gray-300 shadow-md transition-shadow hover:shadow-2xl overflow-clipped hover:shadow-gray-800"
       >
         <button
           type="button"
@@ -51,19 +53,20 @@ export function BeerCard({ beer }: BeerCardProps) {
           <button
             onClick={() => dispatch(remove(beer))}
             type="button"
-            className="self-center py-2 px-3 mb-8 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
+            className="self-center py-2 px-3 mb-4 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
             Remove From Favorites
           </button>
         ) : (
           <button
-            onClick={() => dispatch(upsert(beer))}
+            onClick={() => dispatch(insert(beer))}
             type="button"
-            className="self-center py-2 px-3 mb-8 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
+            className="self-center py-2 px-3 mb-4 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
             Add To Favorites +
           </button>
         )}
+        {Rank}
       </div>
     </>
   );
