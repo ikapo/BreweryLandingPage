@@ -26,7 +26,7 @@ export function FavoritesPage() {
       <PaginatedFooter
         next={() => isValidPage(page + 1) && setPage(page + 1)}
         previous={() => isValidPage(page - 1) && setPage(page - 1)}
-        showingStart={(page - 1) * PER_PAGE + 1}
+        showingStart={total > 0 ? (page - 1) * PER_PAGE + 1 : 0}
         showingEnd={total < page * PER_PAGE ? total : page * PER_PAGE}
         total={total}
       />
