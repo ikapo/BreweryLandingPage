@@ -22,7 +22,8 @@ export function Pagination({
         <p className="text-lg text-gray-200">
           Showing <span className="font-medium">{showingStart}</span> to{" "}
           <span className="font-medium">{showingEnd}</span> of{" "}
-          <span className="font-medium">{total}</span> results
+          <span className="font-medium">{total >= 0 ? total : "unknown"}</span>{" "}
+          results
         </p>
       </div>
       <div className="flex flex-1 justify-between sm:justify-end">
