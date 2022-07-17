@@ -1,6 +1,6 @@
 import { Background } from "@/components/Background";
 import { BeerGrid } from "@/components/BeerGrid";
-import { Pagination } from "@/components/Pagination";
+import { PaginatedFooter } from "@/features/pagination";
 import { isValidPage, PER_PAGE } from "@/config/pagination";
 import { ClearButton } from "@/features/favoriteBeers";
 import { useAppSelector } from "@/hooks/useAppSelector";
@@ -23,7 +23,7 @@ export function FavoritesPage() {
         beers={favorites.slice(firstItemIndex, lastItemIndex)}
       />
       <Background />
-      <Pagination
+      <PaginatedFooter
         next={() => isValidPage(page + 1) && setPage(page + 1)}
         previous={() => isValidPage(page - 1) && setPage(page - 1)}
         showingStart={(page - 1) * PER_PAGE + 1}

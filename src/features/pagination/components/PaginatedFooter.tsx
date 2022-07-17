@@ -1,6 +1,6 @@
 import { useAppSelector } from "@/hooks/useAppSelector";
 
-interface PaginationProps {
+interface PaginatedFooterProps {
   showingStart: number;
   showingEnd: number;
   total: number;
@@ -8,13 +8,13 @@ interface PaginationProps {
   previous: () => void;
 }
 
-export function Pagination({
+export function PaginatedFooter({
   next,
   previous,
   showingStart,
   showingEnd,
   total,
-}: PaginationProps) {
+}: PaginatedFooterProps) {
   const searchStr = useAppSelector((s) => s.search.searchStr);
   return (
     <nav

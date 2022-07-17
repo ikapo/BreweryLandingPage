@@ -4,7 +4,7 @@ import type { IBeer } from "@/features/beers";
 import { BeerGrid } from "@/components/BeerGrid";
 import { Spinner } from "@/components/Spinner";
 import { isErrorObject } from "@/utils/isErrorObject";
-import { Pagination } from "@/components/Pagination";
+import { PaginatedFooter } from "@/features/pagination";
 import { fetchBeers } from "@/utils/fetchBeers";
 import { isValidPage, MAX_PAGE } from "@/config/pagination";
 import { Background } from "@/components/Background";
@@ -65,7 +65,7 @@ export function BrowsePage() {
       ) : (
         <>
           <BeerGrid beers={beers} />
-          <Pagination
+          <PaginatedFooter
             next={() => isValidPage(page + 1) && setPage(page + 1)}
             previous={() => isValidPage(page - 1) && setPage(page - 1)}
             showingStart={(page - 1) * 6 + 1}
