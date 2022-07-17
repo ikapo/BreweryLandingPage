@@ -3,7 +3,13 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { setupStore } from "@/context/store";
-import { QueryClient, QueryClientProvider } from "react-query";
+import {
+  QueryClient,
+  QueryClientProvider,
+  QueryErrorResetBoundary,
+} from "react-query";
+import { ErrorBoundary } from "react-error-boundary";
+import { ErrorDisplay } from "@/features/errors";
 import App from "./App";
 import "./assets/index.css";
 
@@ -15,7 +21,13 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
     <BrowserRouter>
       <QueryClientProvider client={queryClient}>
         <Provider store={store}>
-          <App />
+          <QueryErrorResetBoundary>
+            {({ reset }) => (
+              <ErrorBoundary FallbackComponent={ErrorDisplay} onReset={reset}>
+                <App />
+              </ErrorBoundary>
+            )}
+          </QueryErrorResetBoundary>
         </Provider>
       </QueryClientProvider>
     </BrowserRouter>
