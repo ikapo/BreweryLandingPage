@@ -17,7 +17,7 @@ interface BeerCardProps {
 export function BeerCard({ beer, Rank = null }: BeerCardProps) {
   const [showModal, setShowModal] = useState(false);
   const dispatch = useAppDispatch();
-  const selector = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
+  const selector = useAppSelector((s) => s.fbeers.favoriteBeers);
   ReactModal.setAppElement("body");
   return (
     <>

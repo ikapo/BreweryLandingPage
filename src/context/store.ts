@@ -7,7 +7,7 @@ import { pageReducer } from "@/features/pagination";
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
-  favoriteBeers: favoriteBeersReducer,
+  fbeers: favoriteBeersReducer,
   search: searchReducer,
   pageState: pageReducer,
 });

@@ -9,7 +9,7 @@ import { useState } from "react";
 
 export function FavoritesPage() {
   const [page, setPage] = useState(1);
-  const favorites = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
+  const favorites = useAppSelector((s) => s.fbeers.favoriteBeers);
   const total = favorites.length;
   const firstItemIndex = (page - 1) * PER_PAGE;
   const lastItemIndex = page * PER_PAGE;

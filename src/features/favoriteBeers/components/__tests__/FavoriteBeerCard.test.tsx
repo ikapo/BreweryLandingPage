@@ -46,7 +46,7 @@ describe("FavoriteBeerCard", () => {
     const addToFavorites = screen.getByText("Add To Favorites +");
     fireEvent.click(addToFavorites);
     const {
-      favoriteBeers: { favoriteBeers },
+      fbeers: { favoriteBeers },
     } = store.getState();
     expect(
       favoriteBeers.findIndex((b) => b.id === beer.id)
@@ -56,9 +56,9 @@ describe("FavoriteBeerCard", () => {
     const removeFromFavorites = screen.getByText("Remove From Favorites");
     fireEvent.click(removeFromFavorites);
     const state = store.getState();
-    expect(
-      state.favoriteBeers.favoriteBeers.findIndex((b) => b.id === beer.id)
-    ).toBe(-1);
+    expect(state.fbeers.favoriteBeers.findIndex((b) => b.id === beer.id)).toBe(
+      -1
+    );
   });
 
   it("should display the rank points", () => {
