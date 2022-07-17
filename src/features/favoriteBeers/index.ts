@@ -8,3 +8,4 @@ export {
 } from "./context/favoriteBeersSlice";
 export type { IFavoriteBeer } from "./types/favoriteBeer";
 export { FavoriteBeerCard } from "./components/FavoriteBeerCard";
+export { ClearButton } from "./components/ClearButton";
