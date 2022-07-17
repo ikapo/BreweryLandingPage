@@ -1,7 +1,13 @@
+/* eslint-disable react/require-default-props */
 import { Urls } from "@/types/urls";
+import React from "react";
 import { NavLink } from "react-router-dom";
 
-export function NavBar() {
+interface NavBarProps {
+  children?: React.ReactNode;
+}
+
+export function NavBar({ children }: NavBarProps) {
   return (
     <nav className="px-12 mx-auto bg-gray-800">
       <div className="flex relative justify-between h-16">
@@ -22,6 +28,7 @@ export function NavBar() {
             View Favorites
           </NavLink>
         </div>
+        {children}
       </div>
     </nav>
   );

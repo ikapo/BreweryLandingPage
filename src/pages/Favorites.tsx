@@ -1,9 +1,13 @@
+import { useState } from "react";
 import { Background } from "@/components/Background";
 import { BeerGrid } from "@/components/BeerGrid";
 import { Pagination } from "@/components/Pagination";
-import { isValidPage, PER_PAGE } from "@/config/pagination";
+import { isValidPage } from "@/config/pagination";
 import { useAppSelector } from "@/hooks/useAppSelector";
-import { useState } from "react";
+import { NavBar } from "@/layouts/NavBar";
+import { ClearButton } from "@/features/favoriteBeers";
+
+const PER_PAGE = 3;
 
 export function FavoritesPage() {
   const [page, setPage] = useState(1);
@@ -14,6 +18,9 @@ export function FavoritesPage() {
   const lastItemIndex = page * PER_PAGE;
   return (
     <>
+      <NavBar>
+        <ClearButton />
+      </NavBar>
       <BeerGrid
         favorite
         beers={favorites.slice(firstItemIndex, lastItemIndex)}
