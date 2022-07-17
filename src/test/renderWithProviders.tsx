@@ -4,7 +4,8 @@ import { render } from "@testing-library/react";
 import type { RenderOptions } from "@testing-library/react";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-
+import { Router } from "react-router-dom";
+import { history } from "@/utils/history";
 import { setupStore } from "@/context/store";
 import type { AppStore, RootState } from "@/context/store";
 
@@ -26,7 +27,13 @@ export function renderWithProviders(
 ) {
   // eslint-disable-next-line @typescript-eslint/ban-types
   function Wrapper({ children }: PropsWithChildren<{}>): JSX.Element {
-    return <Provider store={store}>{children}</Provider>;
+    return (
+      <Provider store={store}>
+        <Router location={history.location} navigator={history}>
+          {children}
+        </Router>
+      </Provider>
+    );
   }
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }

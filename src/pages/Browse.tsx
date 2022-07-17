@@ -9,13 +9,16 @@ import { fetchBeers } from "@/utils/fetchBeers";
 import { isValidPage, MAX_PAGE } from "@/config/pagination";
 import { Background } from "@/components/Background";
 import { NavBar } from "@/layouts/NavBar";
+import { SearchBar } from "@/features/search";
+import { useAppSelector } from "@/hooks/useAppSelector";
 
 export function BrowsePage() {
   const [page, setPage] = useState(1);
+  const searchStr = useAppSelector((s) => s.search.searchStr);
 
   const { isLoading, isError, error, data, isFetching } = useQuery(
-    ["beerPage", page],
-    () => fetchBeers(page),
+    ["beerPage", page, searchStr],
+    () => fetchBeers(page, searchStr),
     {
       // Caching
       keepPreviousData: true,
@@ -48,7 +51,9 @@ export function BrowsePage() {
   }
   return (
     <>
-      <NavBar />
+      <NavBar>
+        <SearchBar />
+      </NavBar>
       <Background />
       {isLoading || isFetching ? (
         <div

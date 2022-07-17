@@ -31,7 +31,10 @@ export function BeerRank({ beer }: BeerRankProps) {
           defaultValue="Canada"
         >
           {[1, 2, 3, 4, 5].map((rank) => (
-            <option className="my-2 mx-1 w-4 h-4 text-gray-600 checked:border-none">
+            <option
+              key={`id-${rank}`}
+              className="my-2 mx-1 w-4 h-4 text-gray-600 checked:border-none"
+            >
               {rank}
             </option>
           ))}

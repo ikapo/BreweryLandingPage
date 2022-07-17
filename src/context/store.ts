@@ -2,10 +2,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import { favoriteBeersReducer } from "@/features/favoriteBeers";
+import { searchReducer } from "@/features/search";
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({
   favoriteBeers: favoriteBeersReducer,
+  search: searchReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) =>
