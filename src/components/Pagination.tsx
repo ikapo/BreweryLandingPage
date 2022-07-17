@@ -15,7 +15,7 @@ export function Pagination({
 }: PaginationProps) {
   return (
     <nav
-      className="flex absolute bottom-0 justify-between items-center py-6 px-4 w-screen bg-gray-600 sm:px-6"
+      className="flex absolute bottom-0 justify-between items-center py-1 px-4 w-screen h-16 bg-gray-600 sm:px-6"
       aria-label="Pagination"
     >
       <div className="hidden sm:block">
@@ -29,14 +29,14 @@ export function Pagination({
         <button
           type="button"
           onClick={() => previous()}
-          className="inline-flex relative items-center py-4 px-8 font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50 text-md"
+          className="inline-flex relative items-center py-2 px-8 font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50 text-md"
         >
           Previous
         </button>
         <button
           type="button"
           onClick={() => next()}
-          className="inline-flex relative items-center py-4 px-8 ml-3 font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50 text-md"
+          className="inline-flex relative items-center py-2 px-8 ml-3 font-medium text-gray-700 bg-white rounded-md border border-gray-300 hover:bg-gray-50 text-md"
         >
           Next
         </button>

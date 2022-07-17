@@ -32,7 +32,7 @@ export function BeerCard({ beer, Rank = null }: BeerCardProps) {
 
       <div
         key={beer.id}
-        className="flex flex-col w-72 h-80 rounded-lg border border-gray-300 shadow-md transition-shadow hover:shadow-2xl overflow-clipped hover:shadow-gray-800"
+        className="flex flex-col w-72 h-64 rounded-lg border border-gray-300 shadow-md transition-shadow hover:shadow-2xl overflow-clipped hover:shadow-gray-800"
       >
         <button
           type="button"
