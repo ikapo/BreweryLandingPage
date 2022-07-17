@@ -1,12 +1,12 @@
 import { screen } from "@testing-library/react";
 import { renderWithProviders } from "@/test/renderWithProviders";
-import { getRandomBeer } from "@/test/beerUtils";
+import { getBeerAtIndex } from "@/test/beerUtils";
 import { setupStore } from "@/context/store";
 import type { PreloadedState } from "@reduxjs/toolkit";
 import type { RootState } from "@/context/store";
 import { BeerRank } from "../BeerRank";
 
-const beer = getRandomBeer();
+const beer = getBeerAtIndex(Math.floor(Math.random() * 10));
 const setup = (preloadedState?: PreloadedState<RootState>) => {
   const store = setupStore();
   return renderWithProviders(<BeerRank beer={beer} />, {

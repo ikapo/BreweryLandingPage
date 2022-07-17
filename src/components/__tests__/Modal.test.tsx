@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import { getRandomBeer } from "@/test/beerUtils";
+import { getBeerAtIndex } from "@/test/beerUtils";
 import { Modal } from "@/components/Modal";
 
-const beer = getRandomBeer();
+const beer = getBeerAtIndex(Math.floor(Math.random() * 10));
 const setup = () => render(<Modal beer={beer} />);
 
 describe("Modal", () => {
