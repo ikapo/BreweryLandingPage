@@ -5,8 +5,8 @@
     "scripts": {
         "start": "vite",
         "build": "tsc && vite build",
-        "lint": "eslint **/*.tsx",
-        "lint:fix": "eslint **/*.tsx --fix",
+        "lint": "eslint **/*.tsx --config .eslintrc.js",
+        "lint:fix": "eslint **/*.tsx --fix --config .eslintrc.js",
         "test": "NODE_ENV=test jest",
         "preview": "vite preview"
     },

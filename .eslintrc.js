@@ -37,6 +37,7 @@ module.exports = {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
+    "ignorePatterns": ["node_modules/", "dist/"],
     "rules": {
         // Unneeded since react 17
         "react/react-in-jsx-scope": "off",

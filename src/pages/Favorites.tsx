@@ -11,7 +11,6 @@ export function FavoritesPage() {
   const [page, setPage] = useState(1);
   const favorites = useAppSelector((s) => s.favoriteBeers.favoriteBeers);
   const total = favorites.length;
-  const MAX_PAGE = Math.ceil(total / PER_PAGE);
   const firstItemIndex = (page - 1) * PER_PAGE;
   const lastItemIndex = page * PER_PAGE;
   return (
