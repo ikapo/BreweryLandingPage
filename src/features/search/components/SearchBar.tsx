@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { update } from "@/features/search";
+import { resetPage } from "@/features/pagination";
 
 const searchData = z.object({
   search: z.string(),
@@ -18,6 +19,7 @@ export function SearchBar() {
     resolver: zodResolver(searchData),
   });
   const onSubmit = (formData: FormValues) => {
+    dispatch(resetPage());
     dispatch(update(formData.search));
   };
   return (
