@@ -1,10 +1,10 @@
 /* eslint-disable import/no-cycle */
 export {
   default as favoriteBeersReducer,
-  insert,
+  insertBeer,
   updateRank,
-  remove,
-  clear,
+  removeBeer,
+  clearBeers,
 } from "./context/favoriteBeersSlice";
 export type { IFavoriteBeer } from "./types/favoriteBeer";
 export { FavoriteBeerCard } from "./components/FavoriteBeerCard";

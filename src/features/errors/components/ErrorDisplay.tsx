@@ -1,7 +1,7 @@
 import { Background } from "@/components/Background";
 import { resetPage } from "@/features/pagination";
 import { clear } from "@/features/search";
-import { clear as clearFavorites } from "@/features/favoriteBeers";
+import { clearBeers as clearFavorites } from "@/features/favoriteBeers";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { NavBar } from "@/layouts/NavBar";
 import { FallbackProps } from "react-error-boundary";

@@ -1,5 +1,5 @@
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { clear } from "@/features/favoriteBeers";
+import { clearBeers } from "@/features/favoriteBeers";
 import ReactModal from "react-modal";
 import { useState } from "react";
 
@@ -30,7 +30,7 @@ export function ClearButton() {
             </button>
             <button
               type="button"
-              onClick={() => dispatch(clear()) && setShowModal(false)}
+              onClick={() => dispatch(clearBeers()) && setShowModal(false)}
               className="py-2 px-4 my-auto text-sm font-medium text-center text-white bg-green-500 rounded-md border border-transparent shadow-sm hover:bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
             >
               <span>Confirm</span>

@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 import { IBeer } from "@/features/beers";
-import { insert, remove } from "@/features/favoriteBeers";
+import { insertBeer, removeBeer } from "@/features/favoriteBeers";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { useState } from "react";
@@ -51,7 +51,7 @@ export function BeerCard({ beer, Rank = null }: BeerCardProps) {
         </button>
         {selector.findIndex((b) => b.id === beer.id) !== -1 ? (
           <button
-            onClick={() => dispatch(remove(beer))}
+            onClick={() => dispatch(removeBeer(beer))}
             type="button"
             className="self-center py-2 px-3 mb-4 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
@@ -59,7 +59,7 @@ export function BeerCard({ beer, Rank = null }: BeerCardProps) {
           </button>
         ) : (
           <button
-            onClick={() => dispatch(insert(beer))}
+            onClick={() => dispatch(insertBeer(beer))}
             type="button"
             className="self-center py-2 px-3 mb-4 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
