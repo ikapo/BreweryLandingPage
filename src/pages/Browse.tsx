@@ -1,19 +1,20 @@
 import { useQuery } from "react-query";
-import { useState } from "react";
 import type { IBeer } from "@/features/beers";
 import { BeerGrid } from "@/components/BeerGrid";
 import { Spinner } from "@/components/Spinner";
 import { isErrorObject } from "@/utils/isErrorObject";
-import { Pagination } from "@/components/Pagination";
+import { nextPage, PaginatedFooter, previousPage } from "@/features/pagination";
 import { fetchBeers } from "@/utils/fetchBeers";
 import { isValidPage, MAX_PAGE } from "@/config/pagination";
 import { Background } from "@/components/Background";
 import { NavBar } from "@/layouts/NavBar";
 import { SearchBar } from "@/features/search";
 import { useAppSelector } from "@/hooks/useAppSelector";
+import { useAppDispatch } from "@/hooks/useAppDispatch";
 
 export function BrowsePage() {
-  const [page, setPage] = useState(1);
+  const page = useAppSelector((s) => s.pageState.page);
+  const dispatch = useAppDispatch();
   const searchStr = useAppSelector((s) => s.search.searchStr);
 
   const { isLoading, isError, error, data, isFetching } = useQuery(
@@ -65,9 +66,9 @@ export function BrowsePage() {
       ) : (
         <>
           <BeerGrid beers={beers} />
-          <Pagination
-            next={() => isValidPage(page + 1) && setPage(page + 1)}
-            previous={() => isValidPage(page - 1) && setPage(page - 1)}
+          <PaginatedFooter
+            next={() => isValidPage(page + 1) && dispatch(nextPage())}
+            previous={() => isValidPage(page - 1) && dispatch(previousPage())}
             showingStart={(page - 1) * 6 + 1}
             showingEnd={page * 6 > 100 ? 100 : page * 6}
             total={100}

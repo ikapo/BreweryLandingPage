@@ -1,11 +1,11 @@
-import { Pagination } from "@/components/Pagination";
 import { renderWithProviders } from "@/test/renderWithProviders";
+import { PaginatedFooter } from "@/features/pagination";
 
 const emptyFunc = () => undefined;
-describe("Pagination", () => {
+describe("PaginatedFooter", () => {
   it("should render successfully", () => {
     const { baseElement } = renderWithProviders(
-      <Pagination
+      <PaginatedFooter
         next={emptyFunc}
         previous={emptyFunc}
         showingStart={1}
