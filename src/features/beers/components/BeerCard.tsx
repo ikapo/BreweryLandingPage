@@ -53,7 +53,7 @@ export function BeerCard({ beer, Rank = null }: BeerCardProps) {
           <button
             onClick={() => dispatch(remove(beer))}
             type="button"
-            className="self-center py-2 px-3 mb-8 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
+            className="self-center py-2 px-3 mb-4 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
             Remove From Favorites
           </button>
@@ -61,7 +61,7 @@ export function BeerCard({ beer, Rank = null }: BeerCardProps) {
           <button
             onClick={() => dispatch(insert(beer))}
             type="button"
-            className="self-center py-2 px-3 mb-8 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
+            className="self-center py-2 px-3 mb-4 text-sm bg-gray-200 rounded border border-transparent shadow-sm hover:bg-gray-400 text-grey-800"
           >
             Add To Favorites +
           </button>
