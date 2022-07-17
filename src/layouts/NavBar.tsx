@@ -12,28 +12,32 @@ interface NavBarProps {
 export function NavBar({ children }: NavBarProps) {
   const dispatch = useAppDispatch();
   return (
-    <nav className="px-12 mx-auto bg-gray-800">
-      <div className="flex relative justify-between h-16">
-        <h1 className="flex-shrink-0 self-center mx-4 text-lg font-bold text-gray-50">
-          Birot Ltd.
-        </h1>
-        <div className="flex relative inset-0 justify-center items-center mx-28 sm:absolute">
-          <NavLink
-            className="py-2 px-3 mx-4 text-sm font-medium text-gray-300 rounded-lg hover:text-white hover:bg-gray-700"
-            onClick={() => dispatch(clear())}
-            to={Urls.Browse}
-          >
-            Browse Beers
-          </NavLink>
-          <NavLink
-            onClick={() => dispatch(clear())}
-            className="py-2 px-3 mx-4 text-sm font-medium text-gray-300 rounded-lg hover:text-white hover:bg-gray-700"
-            to={Urls.Favorites}
-          >
-            View Favorites
-          </NavLink>
+    <nav className="bg-gray-800">
+      <div className="flex relative justify-between items-center px-2 mx-auto max-w-7xl h-16 sm:px-4 lg:px-8">
+        <div className="flex items-center px-2 lg:px-0">
+          <h1 className="font-bold text-gray-200">Birot Ltd.</h1>
+          <div className="block ml-6">
+            <div className="flex space-x-4">
+              <NavLink
+                className="py-2 px-2 mx-1 text-sm font-medium text-gray-300 rounded-lg hover:text-white hover:bg-gray-700"
+                onClick={() => dispatch(clear())}
+                to={Urls.Browse}
+              >
+                Browse
+              </NavLink>
+              <NavLink
+                onClick={() => dispatch(clear())}
+                className="py-2 px-2 mx-1 text-sm font-medium text-gray-300 rounded-lg hover:text-white hover:bg-gray-700"
+                to={Urls.Favorites}
+              >
+                Favorites
+              </NavLink>
+            </div>
+          </div>
         </div>
-        {children}
+        <div className="flex justify-end px-2 lg:ml-6">
+          <div className="w-full max-w-lg lg:max-w-xs">{children}</div>
+        </div>
       </div>
     </nav>
   );
