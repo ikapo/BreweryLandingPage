@@ -17,15 +17,15 @@ export const searchSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument
   initialState,
   reducers: {
-    update: (state, newSearchStr: PayloadAction<string>) => {
+    updateSearch: (state, newSearchStr: PayloadAction<string>) => {
       state.searchStr = newSearchStr.payload;
     },
-    clear: (state) => {
+    clearSearch: (state) => {
       state.searchStr = "";
     },
   },
 });
 
-export const { update, clear } = searchSlice.actions;
+export const { updateSearch, clearSearch } = searchSlice.actions;
 export const selectFavoriteBeers = (state: RootState) => state.search;
 export default searchSlice.reducer;

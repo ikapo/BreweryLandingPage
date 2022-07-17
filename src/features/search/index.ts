@@ -1,2 +1,6 @@
-export { default as searchReducer, update, clear } from "./context/searchSlice";
+export {
+  default as searchReducer,
+  updateSearch,
+  clearSearch,
+} from "./context/searchSlice";
 export { SearchBar } from "./components/SearchBar";

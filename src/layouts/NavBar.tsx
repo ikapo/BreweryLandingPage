@@ -1,5 +1,5 @@
 /* eslint-disable react/require-default-props */
-import { clear } from "@/features/search";
+import { clearSearch } from "@/features/search";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { Urls } from "@/types/urls";
 import React from "react";
@@ -20,13 +20,13 @@ export function NavBar({ children }: NavBarProps) {
             <div className="flex space-x-4">
               <NavLink
                 className="py-2 px-2 mx-1 text-sm font-medium text-gray-300 rounded-lg hover:text-white hover:bg-gray-700"
-                onClick={() => dispatch(clear())}
+                onClick={() => dispatch(clearSearch())}
                 to={Urls.Browse}
               >
                 Browse
               </NavLink>
               <NavLink
-                onClick={() => dispatch(clear())}
+                onClick={() => dispatch(clearSearch())}
                 className="py-2 px-2 mx-1 text-sm font-medium text-gray-300 rounded-lg hover:text-white hover:bg-gray-700"
                 to={Urls.Favorites}
               >

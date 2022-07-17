@@ -1,6 +1,6 @@
 import { Background } from "@/components/Background";
 import { resetPage } from "@/features/pagination";
-import { clear } from "@/features/search";
+import { clearSearch } from "@/features/search";
 import { clearBeers as clearFavorites } from "@/features/favoriteBeers";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
 import { NavBar } from "@/layouts/NavBar";
@@ -9,7 +9,7 @@ import { FallbackProps } from "react-error-boundary";
 export function ErrorDisplay({ error, resetErrorBoundary }: FallbackProps) {
   const dispatch = useAppDispatch();
   const resetState = () => {
-    dispatch(clear());
+    dispatch(clearSearch());
     dispatch(clearFavorites());
     dispatch(resetPage());
     resetErrorBoundary();

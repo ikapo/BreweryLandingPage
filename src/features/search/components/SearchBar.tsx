@@ -4,7 +4,7 @@ import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useAppDispatch } from "@/hooks/useAppDispatch";
-import { update } from "@/features/search";
+import { updateSearch } from "@/features/search";
 import { resetPage } from "@/features/pagination";
 
 const searchData = z.object({
@@ -20,7 +20,7 @@ export function SearchBar() {
   });
   const onSubmit = (formData: FormValues) => {
     dispatch(resetPage());
-    dispatch(update(formData.search));
+    dispatch(updateSearch(formData.search));
   };
   return (
     <div className="flex flex-1 justify-center items-center px-2 lg:justify-end lg:ml-6">
