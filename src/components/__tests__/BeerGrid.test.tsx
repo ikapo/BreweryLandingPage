@@ -22,8 +22,8 @@ describe("BeerGrid", () => {
 
   it("should display the beers properly", () => {
     setup();
-    expect(screen.getByText(beer1.name)).toBeTruthy();
-    expect(screen.getByText(beer2.name)).toBeTruthy();
-    expect(screen.getByText(beer3.name)).toBeTruthy();
+    expect(screen.queryAllByText(beer1.name)).toBeTruthy();
+    expect(screen.queryAllByText(beer2.name)).toBeTruthy();
+    expect(screen.queryAllByText(beer3.name)).toBeTruthy();
   });
 });
