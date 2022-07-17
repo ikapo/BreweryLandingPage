@@ -1,10 +1,10 @@
-import { render } from "@testing-library/react";
 import { Pagination } from "@/components/Pagination";
+import { renderWithProviders } from "@/test/renderWithProviders";
 
 const emptyFunc = () => undefined;
 describe("Pagination", () => {
   it("should render successfully", () => {
-    const { baseElement } = render(
+    const { baseElement } = renderWithProviders(
       <Pagination
         next={emptyFunc}
         previous={emptyFunc}
