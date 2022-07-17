@@ -18,13 +18,13 @@ describe("NavBar", () => {
   });
 
   it("should navigate to browse page when 'Browse Beers' is clicked", () => {
-    const browseButton = screen.getByText("Browse Beers");
+    const browseButton = screen.getByText("Browse");
     fireEvent.click(browseButton);
     expect(history.location.pathname).toBe(Urls.Browse);
   });
 
   it("should navigate to favorites page when 'View Favorites' is clicked", () => {
-    const browseButton = screen.getByText("View Favorites");
+    const browseButton = screen.getByText("Favorites");
     fireEvent.click(browseButton);
     expect(history.location.pathname).toBe(Urls.Favorites);
   });
