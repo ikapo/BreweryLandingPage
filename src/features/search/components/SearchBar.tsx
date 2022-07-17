@@ -35,8 +35,8 @@ export function SearchBar() {
         <div className="relative">
           <input
             id="search"
-            className="block py-2 pr-3 pl-3 w-3/4 leading-5 placeholder-gray-500 bg-white rounded-md border border-gray-300 sm:text-sm focus:placeholder-gray-400 focus:border-gray-500 focus:ring-1 focus:ring-gray-500 focus:outline-none"
-            placeholder="Search by food pairing"
+            className="block py-2 pr-3 pl-3 w-5/6 leading-5 placeholder-gray-500 bg-white rounded-md border border-gray-300 sm:text-sm focus:placeholder-gray-400 focus:border-gray-500 focus:ring-1 focus:ring-gray-500 focus:outline-none"
+            placeholder="Search by food"
             type="search"
             {...register("search")}
           />
