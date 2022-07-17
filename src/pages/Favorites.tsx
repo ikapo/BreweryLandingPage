@@ -1,13 +1,11 @@
-import { useState } from "react";
 import { Background } from "@/components/Background";
 import { BeerGrid } from "@/components/BeerGrid";
 import { Pagination } from "@/components/Pagination";
-import { isValidPage } from "@/config/pagination";
+import { isValidPage, PER_PAGE } from "@/config/pagination";
+import { ClearButton } from "@/features/favoriteBeers";
 import { useAppSelector } from "@/hooks/useAppSelector";
 import { NavBar } from "@/layouts/NavBar";
-import { ClearButton } from "@/features/favoriteBeers";
-
-const PER_PAGE = 3;
+import { useState } from "react";
 
 export function FavoritesPage() {
   const [page, setPage] = useState(1);
@@ -27,10 +25,10 @@ export function FavoritesPage() {
       />
       <Background />
       <Pagination
-        next={() => isValidPage(page + 1, MAX_PAGE) && setPage(page + 1)}
-        previous={() => isValidPage(page - 1, MAX_PAGE) && setPage(page - 1)}
-        showingStart={total !== 0 ? firstItemIndex + 1 : 0}
-        showingEnd={page > 1 ? lastItemIndex : total}
+        next={() => isValidPage(page + 1) && setPage(page + 1)}
+        previous={() => isValidPage(page - 1) && setPage(page - 1)}
+        showingStart={(page - 1) * PER_PAGE + 1}
+        showingEnd={total < page * PER_PAGE ? total : page * PER_PAGE}
         total={total}
       />
     </>
