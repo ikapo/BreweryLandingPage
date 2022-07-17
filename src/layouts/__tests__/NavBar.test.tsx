@@ -1,10 +1,10 @@
 import { fireEvent, screen } from "@testing-library/react";
 import { NavBar } from "@/layouts/NavBar";
-import { renderInRouter } from "@/test/renderInRouter";
 import { Urls } from "@/types/urls";
 import { history } from "@/utils/history";
+import { renderWithProviders } from "@/test/renderWithProviders";
 
-const setup = () => renderInRouter(<NavBar />);
+const setup = () => renderWithProviders(<NavBar />);
 
 describe("NavBar", () => {
   beforeEach(() => {
