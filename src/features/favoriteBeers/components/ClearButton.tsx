@@ -43,7 +43,7 @@ export function ClearButton() {
         onClick={() => setShowModal(true)}
         className="py-2 px-4 my-auto text-sm font-medium text-center text-white bg-gray-500 rounded-md border border-transparent shadow-sm hover:bg-gray-600 focus:ring-2 focus:ring-gray-500 focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-none"
       >
-        <span>Clear Favorites</span>
+        <span>Remove All</span>
       </button>
     </>
   );
